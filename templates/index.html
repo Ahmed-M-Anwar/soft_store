@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="Soft Masr - Project">
+        <meta name="author" content="Ahmed ElShahat">
+        <title>Soft Masr</title>
+
+        <!-- FontAwesome -->
+        <link href="templates/assets/css/font-awesome.min.css" rel="stylesheet">
+
+        <!-- Bootstrap -->
+        <link href="templates/assets/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Style -->
+        <link href="templates/assets/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="index.php"><img src="templates/assets/images/logo-dark.png" class="img-responsive" alt=""></a>
+                            </div>
+
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav">
+                                    <li class="active"><a href="index.php">Home <span class="sr-only">(current)</span></a></li>
+                                    <li><a href="products.php">Products</a></li>
+                                    <li><a href="guestbook.php">Guest Book</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="jumbotron">
+                        <h1><i class="fa fa-heart"></i> Welcome to our store!</h1>
+                        <p>You will find the latest trendy clothes with the lowest prices in the market. We are dealing with high quality factories for the best wear experience...</p>
+                        <p><a class="btn btn-danger btn-lg" href="#" role="button">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-header">
+                            <h1>Our Latest Products</h1>
+                        </div>
+                    </div>
+                    
+                    <?php foreach($products as $product){ ?>
+                    <div class="col-md-4">
+                        <div class="product-box text-center">
+                            <div class="product-box__image">
+                                <a href="product-info.php?id=<?php echo $product['id']; ?>">
+                                    <img width='50%' height="100px" src="upload/<?php echo $product['image']; ?>" class="img-responsive" alt="Product Image">
+                                    <span><i class="fa fa-star"></i> Product Info</span>
+                                </a>
+                            </div>
+                            <div class="product-box__title">
+                                <h2><?php echo $product['title']; ?></h2>
+                            </div>
+                            <div class="product-box__desc">
+                                <p><?php echo $product['description']; ?></p>
+                            </div>
+                            <div class="product-box__price">
+                                <span><?php echo $product['price']; ?><sup>EGP</sup></span>
+                            </div>
+                            <a href="product-info.php?id=<?php echo $product['id']; ?>" class="btn btn-lg btn-success"><i class="fa fa-shopping-cart"></i> Buy Now</a>
+                        </div>
+                    </div>
+                    <?php } ?>
+                            
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <div class="copyrights">
+                                <span>Coded by </span><a href="http://www.arabtouch.com.eg">Arab Touch</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="templates/assets/js/jquery.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="templates/assets/js/bootstrap.min.js"></script>
+    </body>
+</html>

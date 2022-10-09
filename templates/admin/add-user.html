@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="Soft Masr - Project">
+        <meta name="author" content="Ahmed Anwar">
+        <title>Soft Masr</title>
+
+        <!-- FontAwesome -->
+        <link href="../templates/assets/css/font-awesome.min.css" rel="stylesheet">
+
+        <!-- Bootstrap -->
+        <link href="../templates/assets/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Style -->
+        <link href="../templates/assets/css/style.css" rel="stylesheet">
+    </head>
+    <body class="admin-panel">
+        <div class="admin-panel__sidebar">
+            <h2>Admin Panel</h2>
+            <div class="welcome">
+                <p>Welcome ( <strong><?php echo $_SESSION['user']['username']; ?></strong> )</p>
+            </div>
+
+            <div class="home">
+                <a href="index.php" class="btn"><i class="fa fa-home"></i> Admin Home</a>
+            </div>
+
+            <div class="panel-group" id="admincontrols" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#admincontrols" href="#products" aria-expanded="true"><i class="fa fa-shopping-cart"></i> Products</a>
+                        </h4>
+                    </div>
+                    <div id="products" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            <ul>
+                                <li><a href="add-product.php">Add Product</a></li>
+                                <li><a href="all-products.php">All Products</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#admincontrols" href="#users" aria-expanded="false"><i class="fa fa-user"></i> Users</a>
+                        </h4>
+                    </div>
+                    <div id="users" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                            <ul>
+                                <li><a href="add-user.php">Add User</a></li>
+                                <li><a href="all-users.php">All Users</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#admincontrols" href="#guestbook" aria-expanded="false"><i class="fa fa-comments"></i> Guest Book</a>
+                        </h4>
+                    </div>
+                    <div id="guestbook" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+                            <ul>
+                                <li><a href="all-messages.php">All Messages</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="logout">
+                    <a href="logout.php" class="btn btn-danger"><i class="fa fa-sign-out"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="admin-panel__content">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-header">
+                        <h1>Add User</h1>
+                    </div>
+                    <?php if(strlen($success)>0){ ?>
+                    <div class="alert alert-success">
+                        <p><?php echo $success; ?></p>
+                    </div>
+                    <?php } ?>
+                    <?php if(strlen($error)>0){ ?>
+                    <div class="alert alert-danger">
+                        <p><?php echo $error; ?></p>
+                    </div>
+                    <?php } ?>
+                </div>
+                <div class="col-md-8">
+                    <form class="form-horizontal" action="add-user.php" method="POST">
+                        
+                        <div class="form-group">
+                            <label for="username" class="col-sm-3 control-label">Username</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="username" name="username" required placeholder="Username">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email-address" class="col-sm-3 control-label">Email Address</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="email-address" name="email" required placeholder="Email Address">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-sm-3 control-label">Password</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" id="password" name="password" required placeholder="Password">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-9">
+                                <button type="submit" class="btn btn-success"><i class="fa fa-user"></i> Add User</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="../templates/assets/js/jquery.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="../templates/assets/js/bootstrap.min.js"></script>
+    </body>
+</html>
